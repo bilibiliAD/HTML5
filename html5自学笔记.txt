@@ -1,0 +1,20 @@
+html新增标签和属性：
+
+<!--导航条标签nav-->
+<nav></nav>
+
+搜索引擎会自动识别这是一个描述标签
+<!--描述标签-->
+<section></section>
+
+<!--文章标签-->
+<article>有些事不是因为看到了希望才去坚持，而是因为坚持才会看到希望</article>
+
+<!--块级性标签-->
+<aside></aside>
+
+ <!--figure  标签规定独立的流内容，通常与figcaption联合使用。-->
+<figure></figure>
+
+<!--表示特定范围内的数值-->
+<meter max=10 min=0 value=5></meter>
