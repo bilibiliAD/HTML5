@@ -1,5 +1,5 @@
-html新增标签和属性：
-
+2018.5.9
+html新增标签：
 <!--导航条标签nav-->
 <nav></nav>
 
@@ -13,8 +13,37 @@ html新增标签和属性：
 <!--块级性标签-->
 <aside></aside>
 
- <!--figure  标签规定独立的流内容，通常与figcaption联合使用。-->
+ <!--规定独立的流内容，通常与figcaption联合使用。-->
 <figure></figure>
 
 <!--表示特定范围内的数值-->
 <meter max=10 min=0 value=5></meter>
+
+<!--表示时间值-->
+my brithday is <time>1994</time>
+datetime属性，有利于搜索引擎读取的优化
+
+<!--用来表示进度条-->
+<progress max="10" min="0" value="5"></progress>
+
+<!--标签定义选项列表-->
+<datalist id="li"></datalist>
+
+
+html新增属性：
+contenteditable属性：规定是否可编辑元素的内容
+属性值：true，false，inherit（继承父元素的contenteditable属性）
+
+draggable属性：规定元素是否可拖拽
+属性值：true，false，auto（使用浏览器默认特性）
+
+hidden属性：用于隐藏该元素。
+
+
+#未实现
+#contextmenu属性：自定义右键菜单。
+
+
+
+
+
