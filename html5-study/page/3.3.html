@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #menu {
+            height: 100px;
+            width: 100px;
+            background: red;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+
+            /*
+            *
+            * 到指定日期，弹出提示框
+            * */
+            //     var time = document.getElementsByTagName("time")[0];
+            //     var date = new Date();
+            //     if (date.getFullYear() == time.innerHTML) {
+            //         alert("happy brithday!")
+            //     }
+
+            /**
+             * 进度条加载
+             * */
+            var pro = document.getElementsByTagName("progress")[0];
+            var t = setInterval(function () {
+                /*如果值为10*/
+                if (pro.value == 10) {
+                    clearInterval(t);
+                    /*进度条消失*/
+                    document.body.removeChild(pro);
+                    var spans = document.createElement("progress");
+                    // spans.innerHTML = "load complate";
+                    /*添加一个span提示完成*/
+                    document.body.appendChild(spans);
+                } else {
+                    pro.value += 1;
+                }
+            }, 500)
+
+
+            /*模拟input中的值变成 选择到list中的值，*/
+            var input = document.getElementsByName("names")[0];
+            input.onchange = function () {
+                alert(input.value);
+            }
+        }
+
+
+    </script>
+</head>
+
+<body>
+<!--表示时间值-->
+my brithday is
+<time>2018</time>
+
+my blog had
+<time datetime=2018.5.9> update</time>
+
+<!--用来表示进度条-->
+<progress max="10" min="0" value="5"></progress>
+
+student name:<input type="text" list="li" name="names"/>
+<datalist id="li">
+    <option>
+        zhang3
+    </option>
+    <option>
+        li4
+    </option>
+    <option>
+        wang5
+    </option>
+</datalist>
+
+
+<!--<div id="menu" oncontextmenu="one">-->
+<!--<menu id="one" itemtype=context>-->
+<!--<comment label="我是一个菜单" icon="img/1.png">-->
+<!--</menu>-->
+<!--</div>-->
+
+<!--规定是否可编辑元素的内容-->
+<div contenteditable="true">
+    编辑我
+</div>
+
+<!--规定元素是否可拖拽-->
+<div draggable="auto">
+    拖拽我
+</div>
+
+<!--用于隐藏该元素。-->
+<div hidden>
+    隐藏我
+
+</div>
+</body>
+</html>

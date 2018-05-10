@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #one {
+            width: 302px;
+            height: 200px;
+            border: #105cb6 1px solid;
+        }
+
+        #two {
+            width: 111px;
+            height: 200px;
+            border: red 1px solid;
+        }
+    </style>
+
+    <script>
+
+        window.onload = function () {
+            var one = document.getElementById("one");
+            var two = document.getElementById("two");
+
+            //拖拽物体的事件
+
+            /*拖拽开始触发事件：ondragstart*/
+            two.ondragstart = function (e) {
+                /*使用dataTransfer传递数据*/
+                e.dataTransfer.setData("Text","bilibiliAD");
+                one.innerHTML = "start";
+            }
+            /*拖拽时触发事件：ondrag*/
+            two.ondrag = function () {
+                // one.innerHTML += "move";
+            }
+            /*拖拽完成触发事件：ondragend*/
+            two.ondragend = function () {
+                one.innerHTML += " end ";
+            }
+
+            //投放区事件
+            /*鼠标进入投放区触发事件：ondragenter*/
+            one.ondragenter = function (e) {
+                e.preventDefault();
+                one.innerHTML +=" enter ";
+            }
+
+            /*鼠标在投放区内移动触发事件：ondragover*/
+            one.ondragover = function (e) {
+                e.preventDefault();
+               // one.innerHTML +=" over ";
+            }
+
+            /*鼠标离开投放区触发事件：ondragleave*/
+            one.ondragleave = function (e) {
+                e.preventDefault();
+                one.innerHTML +=" leave ";
+            }
+
+            /*投放成功*/
+
+            one.ondrop = function (e) {
+                e.preventDefault();
+                alert(e.dataTransfer.getData("Text"));
+                one.appendChild(two);
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="one"></div>
+<div id="two" draggable="true"> please move me</div>
+</body>
+</html>

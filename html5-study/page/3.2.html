@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            var meter = document.getElementsByTagName("meter")[0];
+            meter.onclick = function () {
+                meter.value += 1;
+            }
+        }
+    </script>
+</head>
+<body>
+<!--表示特定范围内的数值-->
+<meter max=10 min=0 value=5></meter>
+</body>
+</html>

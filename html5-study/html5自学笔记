@@ -34,16 +34,58 @@ html新增属性：
 contenteditable属性：规定是否可编辑元素的内容
 属性值：true，false，inherit（继承父元素的contenteditable属性）
 
-draggable属性：规定元素是否可拖拽
-属性值：true，false，auto（使用浏览器默认特性）
-
 hidden属性：用于隐藏该元素。
-
 
 #未实现
 #contextmenu属性：自定义右键菜单。
 
 
+2018.5.9 html5拖拽列表
 
 
+draggable属性：规定元素是否可拖拽
+属性值：true，false，auto（使用浏览器默认特性）
+
+                    //拖拽物体的事件
+
+                       /*拖拽开始触发事件：ondragstart*/
+                       two.ondragstart = function (e) {
+                           /*使用dataTransfer传递数据*/
+                           e.dataTransfer.setData("Text","bilibiliAD");
+                           one.innerHTML = "start";
+                       }
+                       /*拖拽时触发事件：ondrag*/
+                       two.ondrag = function () {
+                           // one.innerHTML += "move";
+                       }
+                       /*拖拽完成触发事件：ondragend*/
+                       two.ondragend = function () {
+                           one.innerHTML += " end ";
+                       }
+
+                       //投放区事件
+                       /*鼠标进入投放区触发事件：ondragenter*/
+                       one.ondragenter = function (e) {
+                           e.preventDefault();
+                           one.innerHTML +=" enter ";
+                       }
+
+                       /*鼠标在投放区内移动触发事件：ondragover*/
+                       one.ondragover = function (e) {
+                           e.preventDefault();
+                          // one.innerHTML +=" over ";
+                       }
+
+                       /*鼠标离开投放区触发事件：ondragleave*/
+                       one.ondragleave = function (e) {
+                           e.preventDefault();
+                           one.innerHTML +=" leave ";
+                       }
+
+                       /*投放成功*/
+
+                       one.ondrop = function (e) {
+                           e.preventDefault();
+                           one.appendChild(two);
+                       }
 

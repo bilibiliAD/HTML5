@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>互相拖拽</title>
+
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            border: blue solid 1px;
+        }
+
+        #con {
+            width: 200px;
+            height: 200px;
+            border: red solid 1px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            width: 150px;
+            height: 30px;
+            margin: 5px 0;
+            background: gray;
+            line-height: 30px;
+            text-align: center;
+            list-style: none;
+        }
+    </style>
+
+    <script>
+        /*实现互相拖拽*/
+        window.onload = function () {
+            var box = document.getElementById("box");
+            var con = document.getElementById("con");
+            var lis = document.getElementsByTagName("li");
+
+            for (var i=0; i<lis.length; i++) {
+                lis[i].draggable=true;
+                lis[i].flag=false;
+                lis[i].ondragstart=function  () {
+                    this.flag=true;
+                }
+                lis[i].ondragend=function  () {
+                    this.flag=false;
+                }
+            }
+
+            box.ondragenter = function (e) {
+                e.preventDefault();
+            }
+            box.ondragover = function (e) {
+                e.preventDefault();
+            }
+
+            box.ondragleave = function (ev1) {
+                ev1.preventDefault();
+            }
+            box.ondrop = function (ev1) {
+                for (var i = 0; i < lis.length; i++) {
+                    if (lis[i].flag) {
+                        box.appendChild(lis[i]);
+                    }
+                }
+                ev1.preventDefault();
+            }
+
+            con.ondragenter = function (e) {
+                e.preventDefault();
+            }
+            con.ondragover = function (e) {
+                e.preventDefault();
+            }
+
+            con.ondragleave = function (ev1) {
+                ev1.preventDefault();
+            }
+            con.ondrop = function (ev1) {
+                for (var i = 0; i < lis.length; i++) {
+                    if (lis[i].flag) {
+                        con.appendChild(lis[i]);
+                    }
+                }
+                ev1.preventDefault();
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+
+</div>
+<ul id="con">
+    <li>php</li>
+    <li>html5</li>
+    <li>js</li>
+    <li>css</li>
+</ul>
+</body>
+</html>
