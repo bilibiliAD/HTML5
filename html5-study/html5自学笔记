@@ -1,5 +1,5 @@
-2018.5.9
-html新增标签：
+2018.5.9 html新增标签：
+
 <!--导航条标签nav-->
 <nav></nav>
 
@@ -40,8 +40,8 @@ hidden属性：用于隐藏该元素。
 #contextmenu属性：自定义右键菜单。
 
 
-2018.5.9 html5拖拽列表
-
+--------------------------------------分割线----------------------------------
+2018.5.10 html5拖拽列表
 
 draggable属性：规定元素是否可拖拽
 属性值：true，false，auto（使用浏览器默认特性）
@@ -89,3 +89,25 @@ draggable属性：规定元素是否可拖拽
                            one.appendChild(two);
                        }
 
+
+--------------------------------------分割线----------------------------------
+2018.5.11 html5拖拽异步上传
+
+            获取文件的一些基本属性
+            dataTransfer.files.length
+            dataTransfer.files[0].name
+            dataTransfer.files[0].type
+            dataTransfer.files[0].size
+
+            box.ondrop = function (e) {
+                /*获取到文件数据*/
+                var file = e.dataTransfer.files[0];
+                /*把数据变成表格的数据*/
+                var formData = new FormData();
+                formData.append("aaa", file);
+                /*异步ajax*/
+                var xml = new XMLHttpRequest();
+                xml.open("post", "up.php");
+                xml.send(formData);
+                e.preventDefault();
+            }

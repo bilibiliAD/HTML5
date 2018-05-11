@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            width: 150px;
+            height: 150px;
+            border: 1px dashed red;
+            font-size: 13px;
+            line-height: 150px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box = document.getElementById("box");
+            box.ondragenter = function (e) {
+                e.preventDefault();
+
+            }
+            box.ondragover = function (e) {
+                e.preventDefault();
+                box.innerHTML = "please remove mouse"
+            }
+            box.ondragleave = function (e) {
+                e.preventDefault();
+                box.innerHTML = " please drop uploadfile"
+            }
+            box.ondrop = function (e) {
+                /*获取到文件数据*/
+                var file = e.dataTransfer.files[0];
+                /*把数据变成表格的数据*/
+                var formData = new FormData();
+                formData.append("aaa", file);
+                /*异步ajax*/
+                var xml = new XMLHttpRequest();
+                xml.open("post", "up.php");
+                xml.send(formData);
+                e.preventDefault();
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+    please drop uploadfile
+</div>
+</body>
+</html>
